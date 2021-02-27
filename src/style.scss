@@ -1,7 +1,86 @@
+$small-border: 1px solid #000;
+
 body {
   box-sizing: border-box;
   width: 100%;
-  height: 100vh;
   overflow-x: hidden;
   margin: 0;
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app {
+  width: 100vw;
+  margin: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  position: relative;
+  .editor {
+    outline: none;
+    padding: 1rem;
+    background-color: #fff;
+    border: $small-border;
+
+    textarea {
+      width: 100%;
+    }
+  }
+  h1 {
+    margin: 0;
+    padding: 0.4rem;
+  }
+  .preview {
+    width: 50%;
+    max-width: 600px;
+    background-color: #fff;
+    height: 400px;
+    padding: 1rem;
+    overflow-y: scroll;
+    border: $small-border;
+
+    .h1 {
+      border-bottom: $small-border;
+    }
+    code {
+      background-color: #c4c4c4;
+      display: inline-block;
+      padding: 2px;
+    }
+    blockquote {
+      color: #029ba6;
+      border-left: 0.3rem solid #029ba6;
+    }
+    table {
+      display: table;
+      border-spacing: 2px;
+
+      th,
+      td {
+        border: 2px solid #000;
+      }
+    }
+  }
+  footer {
+    margin-bottom: auto;
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .app {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .preview {
+      width: 90%;
+      margin-top: 1rem;
+      padding: 3rem;
+    }
+  }
 }
