@@ -1,86 +1,75 @@
-$small-border: 1px solid #000;
+$background-color: #141414;
+$border-radius: 50%;
+$lighter-background: #616060;
 
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
 body {
   box-sizing: border-box;
   width: 100%;
   overflow-x: hidden;
   margin: 0;
-  background-color: pink;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.app {
-  width: 100vw;
-  margin: 3rem;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 2rem;
-  position: relative;
-  .editor {
-    outline: none;
-    padding: 1rem;
-    background-color: #fff;
-    border: $small-border;
+  color: #fff;
 
-    textarea {
-      width: 100%;
-    }
-  }
-  h1 {
-    margin: 0;
-    padding: 0.4rem;
-  }
-  .preview {
-    width: 50%;
-    max-width: 600px;
-    background-color: #fff;
-    height: 400px;
-    padding: 1rem;
-    overflow-y: scroll;
-    border: $small-border;
+  .bg {
+    width: 100%;
+    height: 100vh;
+    background-color: #daa4db;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    .h1 {
-      border-bottom: $small-border;
-    }
-    code {
-      background-color: #c4c4c4;
-      display: inline-block;
-      padding: 2px;
-    }
-    blockquote {
-      color: #029ba6;
-      border-left: 0.3rem solid #029ba6;
-    }
-    table {
-      display: table;
-      border-spacing: 2px;
+    .calculator {
+      background-color: $background-color;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 320px;
+      overflow: hidden;
 
-      th,
-      td {
-        border: 2px solid #000;
+      .display {
+        height: 3rem;
+        width: 100%;
+        margin: 1rem;
+        padding: 1rem;
+        h1 {
+          text-align: right;
+          padding: 0 1rem;
+        }
+      }
+
+      button:last-child {
+        background-color: orange;
+        color: white;
+      }
+      #clear {
+        width: 13rem;
+        border-radius: 40px;
+      }
+      #zero {
+        width: 8rem;
+        border-radius: 40px;
+      }
+      button {
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        border-radius: $border-radius;
+        background-color: $lighter-background;
+        border: 0;
+        outline: 0;
+        margin: 1rem;
+        color: #fff;
       }
     }
   }
-  footer {
-    margin-bottom: auto;
-    position: absolute;
-    bottom: 0;
-    left: 40%;
-    a {
-      text-decoration: underline;
-    }
-  }
 }
-@media screen and (max-width: 1024px) {
-  .app {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    .preview {
-      width: 90%;
-      margin-top: 1rem;
-      padding: 3rem;
-    }
-  }
+.footer {
+  margin: 2rem;
+  color: #000;
 }
