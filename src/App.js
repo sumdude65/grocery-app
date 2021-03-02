@@ -8,11 +8,31 @@ const math = create(all, config);
 
 export const App = () => {
   const [display, setDisplay] = useState("");
+  //allows me to keep track of the current number being entered
+  const [number, setNumber] = useState("");
 
   //handles button presses
   const handleClick = (i) => {
     const displayCopy = display.toString().slice();
-
+    // checks for multiple periods(.) in thesame number and prevents it
+    if (number.indexOf(".") > -1) {
+      let dotRef = number.concat(i).indexOf(".");
+      let nextDot = number.concat(i).lastIndexOf(".");
+      if (nextDot !== dotRef) {
+        return;
+      }
+    }
+    //checks if an operand has been entered into the display and resets number state
+    if (
+      number.concat(i).indexOf("+") > -1 ||
+      number.concat(i).indexOf("-") > -1 ||
+      number.concat(i).indexOf("*") > -1 ||
+      number.concat(i).indexOf("/") > -1
+    ) {
+      setNumber("");
+    } else {
+      setNumber(number.concat(i));
+    }
     //tests for consecutive periods
     const regex = /\.\./g;
 
@@ -42,10 +62,12 @@ export const App = () => {
   const handleSubmit = () => {
     const displayCopy = display.slice();
     setDisplay(math.evaluate(displayCopy).toString());
+    setNumber("");
   };
-
+  //resets entire calculator
   const handleClear = () => {
     setDisplay("0");
+    setNumber("");
   };
   return (
     <div className="calculator">
