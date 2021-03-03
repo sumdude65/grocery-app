@@ -46,16 +46,17 @@ export const App = () => {
     }
   };
   useEffect(() => {
+    const timeOutId = setTimeout(() => {
+      setDisplay(null);
+    }, 3500);
     document.addEventListener("keydown", handleEvent);
     const playingTimeOut = setInterval(() => {
       const playing = document.querySelector(`button[class='playing']`);
       if (playing) {
         playing.classList.remove("playing");
       }
-    }, 400);
-    const timeOutId = setTimeout(() => {
-      setDisplay(null);
-    }, 3500);
+    }, 200);
+
     return () => {
       clearTimeout(timeOutId);
       clearInterval(playingTimeOut);
