@@ -1,75 +1,68 @@
-$background-color: #141414;
-$border-radius: 50%;
-$lighter-background: #616060;
-
 * {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: monospace;
 }
 body {
-  box-sizing: border-box;
   width: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  color: #fff;
+  height: 100vh;
+  background-color: #6a6a6b;
+}
 
-  .bg {
-    width: 100%;
-    height: 100vh;
-    background-color: #daa4db;
+.drum {
+  margin: 4rem auto;
+  width: 500px;
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(58, 58, 58);
+  border-radius: 10px;
+
+  .left {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .calculator {
-      background-color: $background-color;
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      max-width: 320px;
-      overflow: hidden;
-
-      .display {
-        height: 3rem;
-        width: 100%;
-        margin: 1rem;
-        padding: 1rem;
-        h1 {
-          text-align: right;
-          padding: 0 1rem;
-        }
-      }
-
-      button:last-child {
-        background-color: orange;
-        color: white;
-      }
-      #clear {
-        width: 13rem;
-        border-radius: 40px;
-      }
-      #zero {
-        width: 8rem;
-        border-radius: 40px;
-      }
-      button {
-        display: inline-block;
-        width: 3rem;
-        height: 3rem;
-        border-radius: $border-radius;
-        background-color: $lighter-background;
-        border: 0;
-        outline: 0;
-        margin: 1rem;
-        color: #fff;
-      }
-    }
+    flex-flow: row wrap;
+    width: 250px;
+    height: 100%;
   }
 }
-.footer {
-  margin: 2rem;
-  color: #000;
+
+.power {
+  height: 1.5rem;
+  width: 3rem;
+  background-color: #8c8d8f;
+  margin: 0 auto;
+
+  span {
+    background-color: blue;
+    display: block;
+    width: 1.5rem;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+.display {
+  background-color: #8c8d8f;
+  height: 2.5rem;
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2rem;
+  align-items: center;
+  color: #fff;
+}
+.container {
+  margin: 1rem;
+  h1 {
+    margin: 5px;
+  }
+}
+.slider {
+  margin: 1rem;
 }
