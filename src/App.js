@@ -1,6 +1,7 @@
 import React from "react";
 import { MdEmail } from "react-icons/md";
 import { AiOutlineTwitter } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { projects } from "./components/data";
 import { Project } from "./components/Project/index";
 import "./style.css";
@@ -43,6 +44,9 @@ export const Footer = () => {
         </a>
         <a href="mailto:imadeosaretin@gmail.com">
           <MdEmail />
+        </a>
+        <a href="https://github.com/sumdude65">
+          <AiFillGithub />
         </a>
       </div>
     </footer>
