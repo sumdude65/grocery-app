@@ -1,54 +1,61 @@
-import React from "react";
-import { MdEmail } from "react-icons/md";
-import { AiOutlineTwitter } from "react-icons/ai";
-import { AiFillGithub } from "react-icons/ai";
-import { projects } from "./components/data";
-import { Project } from "./components/Project/index";
-import "./style.css";
+import React, { useState, useEffect, useRef } from "react";
+import logo from "./components/logo.svg";
+import { links, socials } from "./components/data";
+import { FaBars } from "react-icons/fa";
+import "./style.scss";
 
-export const Home = () => {
+export const Navbar = () => {
+  const [openNav, setOpenNav] = useState(false);
+  const linksContainer = useRef(null);
+  const linksRef = useRef(null);
+
+  const toggleNav = () => {
+    setOpenNav(!openNav);
+  };
+
+  useEffect(() => {
+    if (openNav) {
+      const containerHeight = linksRef.current.getBoundingClientRect().height;
+      linksContainer.current.style.height = containerHeight + "px";
+    } else {
+      linksContainer.current.style.height = "0px";
+    }
+  });
+  useEffect(() => {
+    if (window.innerWidth > 850) {
+      console.log("setted");
+      setOpenNav(true);
+    }
+  }, []);
+
   return (
-    <main className="home">
-      <div className="text">
-        <h1>
-          Hello There,<br></br> I'm <span>Imade Osaretin Frank</span>
-        </h1>
-
-        <p>
-          A passionate web developer, interested in creating meaning and
-          solutions through my code to help people and organizations around the
-          world.
-        </p>
+    <nav>
+      <div className="logo">
+        <img src={logo} alt="logo" />
+        <button id="navbar-toggle" onClick={() => toggleNav()}>
+          <FaBars />
+        </button>
       </div>
-    </main>
-  );
-};
-
-export const ProjectList = () => {
-  return (
-    <div id="project" className="projects">
-      {projects.map((obj, idx) => {
-        return <Project key={idx} props={obj} />;
-      })}
-    </div>
-  );
-};
-
-export const Footer = () => {
-  return (
-    <footer>
-      <h1>Like what you see? Let's have a chat..</h1>
-      <div className="icon">
-        <a href="https://twitter.com/imadeosaretin_">
-          <AiOutlineTwitter />
-        </a>
-        <a href="mailto:imadeosaretin@gmail.com">
-          <MdEmail />
-        </a>
-        <a href="https://github.com/sumdude65">
-          <AiFillGithub />
-        </a>
+      <div className="linksContainer" ref={linksContainer}>
+        <ul className="list" ref={linksRef}>
+          {links.map((link) => {
+            return (
+              <li key={link.id}>
+                <a href={link.url}>{link.title}</a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    </footer>
+      <div className="socials">
+        {socials.map((social, idx) => {
+          return (
+            <a key={idx} href={social.url}>
+              {social.icon}
+            </a>
+          );
+        })}
+      </div>
+    </nav>
   );
 };

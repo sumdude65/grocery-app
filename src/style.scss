@@ -1,148 +1,83 @@
-$primary-color: #fff;
-$secondary-color: #333;
-$gradient1: #13b6f7;
-$gradient2: #6af5ff;
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Noto Sans JP", sans-serif;
 }
+.linksContainer {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
 
-.App {
-  width: 100%;
-  overflow-x: hidden;
+  .logo button {
+    display: none;
+  }
 
-  nav {
-    background-color: $secondary-color;
-    color: $primary-color;
-    width: 100%;
+  .list {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 3rem;
-    .links {
-      display: flex;
-      align-items: center;
-      .contact {
-        display: flex;
-        flex-direction: column;
-        margin: 1rem;
-        p {
-          margin-top: 0.5rem;
-        }
-      }
+    li {
+      margin: 1rem;
+      list-style: none;
+      color: black;
       a {
         text-decoration: none;
-        color: $primary-color;
-        margin: 1rem;
-      }
-      a:hover {
-        color: $gradient1;
+        color: black;
       }
     }
   }
-
-  .home {
+  .socials {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 90vh;
-    width: 100%;
-    background-image: linear-gradient(90deg, $gradient1 35%, $gradient2 100%);
-
-    .text {
-      width: 50%;
-      text-align: center;
-      color: $primary-color;
-      padding: 2rem;
-      span {
-        color: $secondary-color;
-      }
+    a {
+      margin: 2rem;
+      font-size: 30px;
     }
   }
 }
-
-.about {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-
-  header {
-    font-size: 40px;
-    margin: 1rem;
+@media screen and (max-width: 850px) {
+  body {
+    background-color: grey;
   }
-  .content {
-    width: 80%;
-    text-align: center;
-    p {
-      letter-spacing: 1px;
-    }
-    h3 {
-      margin: 1rem;
-      text-decoration: underline;
-    }
+  nav .socials {
+    display: none;
   }
-}
-
-.projects {
-  width: 100%;
-  display: flex;
-  background-color: $gradient1;
-  padding: 2rem;
-
-  .project {
-    width: 25rem;
-    background-color: $primary-color;
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: center;
-
-    h1,
-    p {
-      font-size: medium;
-    }
-    p {
-      letter-spacing: 1px;
-    }
-    .tech {
-      button {
-        margin: 1rem;
-        padding: 0.3rem;
-        border-color: $gradient2;
-        background-color: $primary-color;
-        color: $gradient1;
-        border-radius: 5px;
-      }
-    }
-    img {
+  nav {
+    position: relative;
+    .logo {
       width: 100%;
-      object-fit: cover;
-    }
-    .buttons {
       display: flex;
       justify-content: space-between;
-      a {
+      button {
         display: inline-block;
-        margin: 0 1rem;
-        border: 1px solid $gradient1;
-        padding: 0.3rem;
-        border-radius: 5px;
-        text-decoration: none;
-        color: $gradient1;
+        font-size: 30px;
+        margin: 1rem;
+        transition: all 0.5s linear;
+        color: skyblue;
+      }
+      button:focus {
+        transform: rotate(90deg);
       }
     }
-  }
-}
+    .linksContainer {
+      position: absolute;
+      background-color: #fff;
+      top: 4rem;
+      left: 0;
+      width: 100%;
+      transition: all 0.3s ease-in-out;
 
-p {
-  font-weight: 300;
-}
-@media screen and (max-width: 900px) {
-  .App .home .text {
-    width: 100%;
+      .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }
